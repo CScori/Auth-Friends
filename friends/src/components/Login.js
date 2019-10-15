@@ -23,6 +23,7 @@ const Login = () => {
          [e.target.name]; e.target.value
         }
     }
+    
     return (
         <div>
             <form onSubmit={this.login}>

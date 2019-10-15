@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
           <nav>
           <ul>
             <li>
-              <Link>Login</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
               <Link>Friends</Link>
@@ -17,7 +18,7 @@ function App() {
           </ul>
           </nav>
           <Switch>
-            <Route path="/login"/>
+            <Route path="/login" component={Login}/>
             <Route path="friends"/>
           </Switch>
         </div>
