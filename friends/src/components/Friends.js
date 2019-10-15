@@ -7,12 +7,18 @@ const Friends = () => {
     axiosWithAuth()
     .get('/api/friends')
     .then(res => {
-        console.log('Friends data', res)
-        setFriends({})
+        console.log('Friends data', res.data)
+        setFriends({...friends, res})
     })
 
     return (
-        <div>
+        <div>{friends.map(friend => {
+            <div key={friend.id}>
+               <h3>{friend.name}</h3> 
+               <span>{friend.age}</span>
+               <button>I Hate You!</button>
+            </div>
+        })}
             
         </div>
     )

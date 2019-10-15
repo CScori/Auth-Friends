@@ -14,8 +14,8 @@ const Login = () => {
         axiosWithAuth()
         .post('/api/login')
         .then(res => {
-            console.log('credentials axios', res.data)
-            localStorage.setItem('token', res.payload)
+            console.log('credentials axios', res.data.payload)
+            localStorage.setItem('token', res.data.payload)
             this.props.history.push('/friends')
         })
         .catch(err => console.log('Login Error', err.response))
