@@ -20,7 +20,9 @@ function App() {
           <Switch>
             <Route path="/login" component={Login}/>
             <Route path="friends"/>
+            <Route component={Login} />
           </Switch>
+          
         </div>
       </Router>
     
