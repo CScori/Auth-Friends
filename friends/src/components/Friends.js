@@ -10,7 +10,7 @@ const Friends = () => {
             .get('/api/friends')
             .then(res => {
                 console.log('Friends data', res.data);
-                setFriends({ ...friends, res.data })
+                setFriends(res.data)
             })
             .catch(err => { console.log('friends err', err.response) })
     }
@@ -18,17 +18,21 @@ const Friends = () => {
     useEffect(() => {
         getData()
     }, [])
+
+
+   
     return (
         <div>{friends.map(friend => {
             return (
                 <div key={friend.id}>
                     <h3>{friend.name}</h3>
-                    <p>{friend.age} <br /> Make another friend at: {friend.email}</p>
+                    <p>{friend.age} <br /> Make friends with: {friend.email}</p>
                     <button>I Hate You!(delete)</button>
                 </div>
             )
         })}
-            <NewFriends />
+        
+            <NewFriends setFriends={setFriends}/>
         </div>
     )
 }
