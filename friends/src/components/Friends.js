@@ -19,7 +19,15 @@ const Friends = () => {
         getData()
     }, [])
 
-
+    const remove = (id) => {
+        axiosWithAuth()
+        .delete(`/api/friends/${id}`)
+        .then(res => {
+            console.log('Delete id', res)
+            setFriends(res.data)
+        })
+        .catch(err => console.log('delete', err))
+    }
    
     return (
         <div>{friends.map(friend => {
@@ -27,7 +35,8 @@ const Friends = () => {
                 <div key={friend.id}>
                     <h3>{friend.name}</h3>
                     <p>{friend.age} <br /> Make friends with: {friend.email}</p>
-                    <button>I Hate You!(delete)</button>
+                    <button>Let's Get Closer</button>
+                    <button onClick={() => remove(friend.id)}>I Hate You!(delete)</button>
                 </div>
             )
         })}
